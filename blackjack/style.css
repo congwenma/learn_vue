@@ -1,6 +1,57 @@
+html {
+  background: #ddd;
+  color: black;
+}
+.deck .card {
+  width: 2px;
+}
 .card {
 }
 .box {
-  height: 50px;
+  width: 100px;
+  height: 160px;
   border: 1px solid white;
+  background: #7aa;
+  color: black;
+}
+.box.card--back > span {
+  color: transparent !important;
+}
+.box.card--back {
+  background-color: #6d695c;
+  background-image: repeating-linear-gradient(
+      120deg,
+      rgba(255, 255, 255, 0.1),
+      rgba(255, 255, 255, 0.1) 1px,
+      transparent 1px,
+      transparent 20px
+    ),
+    repeating-linear-gradient(
+      60deg,
+      rgba(255, 255, 255, 0.1),
+      rgba(255, 255, 255, 0.1) 1px,
+      transparent 1px,
+      transparent 20px
+    ),
+    linear-gradient(
+      60deg,
+      rgba(0, 0, 0, 0.1) 25%,
+      transparent 25%,
+      transparent 75%,
+      rgba(0, 0, 0, 0.1) 75%,
+      rgba(0, 0, 0, 0.1)
+    ),
+    linear-gradient(
+      120deg,
+      rgba(0, 0, 0, 0.1) 25%,
+      transparent 25%,
+      transparent 75%,
+      rgba(0, 0, 0, 0.1) 75%,
+      rgba(0, 0, 0, 0.1)
+    );
+  background-size: 70px 120px;
+}
+
+.red-text {
+  color: red;
 }
