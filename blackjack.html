@@ -19,27 +19,17 @@
     <button class="p2" @click="done()">Done</button>
 
     <h4 class="inline-block red-text">{{ message.result }}</h4>
-    <!-- Facedown -->
-    <ul class="deck list-reset" @click="hitplayer()">
-      <card-item v-for="card in deck.cards" v-bind:card="card" v-bind:key="card.suit + card.rank" v-bind:facedown="true">
-      </card-item>
-    </ul>
+    <!-- Facedown Deck -->
+    <!-- NOTE: v-on:hitplayer is actually listening for this component itself to emit an event, and handle it with parent(rootApp)'s `methods` -->
+    <card-deck v-bind:deck="deck" v-on:hitplayer="hitplayer"></card-deck>
 
-    <div class="inline-block" style="width:49%">
-      <h2>Computer</h2>
-      <ul class="hand list-reset">
-        <card-item v-for="(card, index) in computer.cards" v-bind:card="card" v-bind:key="card.suit + card.rank" v-bind:facedown="index === 0">
-        </card-item>
-      </ul>
-    </div>
+    <cpu-hand
+      v-bind:hand="computer.cards"
+      v-bind:isdone="isDone"
+    ></cpu-hand>
 
-    <div class="inline-block" style="width:49%">
-      <h2>Human</h2>
-      <ul class="hand list-reset">
-        <card-item v-for="card in player.cards" v-bind:card="card" v-bind:key="card.suit + card.rank">
-        </card-item>
-      </ul>
-    </div>
+    <player-hand v-bind:hand="player.cards" >
+    </player-hand>
   </div>
 
   <script src="./node_modules/vue/dist/vue.js"></script>
