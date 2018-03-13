@@ -5,12 +5,13 @@ html {
 .deck .card {
   width: 2px;
 }
-.card {
+.card > .box > span {
+  font-size: 50px;
 }
 .box {
   width: 100px;
   height: 160px;
-  border: 1px solid white;
+  border: 1px solid black;
   background: #7aa;
   color: black;
 }
@@ -18,7 +19,8 @@ html {
   color: transparent !important;
 }
 .box.card--back {
-  background-color: #6d695c;
+  /* background-color: #6d695c; */
+  background-color: #225;
   background-image: repeating-linear-gradient(
       120deg,
       rgba(255, 255, 255, 0.1),

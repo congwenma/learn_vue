@@ -75,9 +75,9 @@ const app = new Vue({
 
 // TAKEAWAY: v-html escapes innerhtml
 Vue.component("card-item", {
-  props: ["card", "facedown"],
+  props: ["card", "facedown", "classObj"],
   template: `
-    <li class="card inline-block" >
+    <li class="card inline-block" v-bind:class="classObj">
       <div class="box" v-bind:class="{'card--back': facedown }">
         <span v-html="getSuitIcon(card.suit)" v-bind:style="{ color: getSuitColor(card.suit) }"></span>
         <span>{{card.rank}}</span>
@@ -112,6 +112,7 @@ Vue.component("cpu-hand", {
       <h2>Computer</h2>
       <ul class="hand list-reset">
         <card-item
+          v-bind:classObj="{ 'm1': true }"
           v-for="(card, index) in hand"
           v-bind:card="card"
           v-bind:key="card.suit + card.rank"
@@ -130,6 +131,7 @@ Vue.component("player-hand", {
       <h2>Human</h2>
       <ul class="hand list-reset">
         <card-item
+          v-bind:classObj="{ 'm1': true }"
           v-for="card in hand"
           v-bind:card="card"
           v-bind:key="card.suit + card.rank"
